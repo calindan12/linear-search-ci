@@ -25,6 +25,7 @@ jobs:
 
       - name: Run tests
         run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)/src
           pytest --cov=src --cov-report=html --cov-fail-under=80
 
       - name: Upload coverage
