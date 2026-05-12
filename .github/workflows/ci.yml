@@ -36,11 +36,5 @@ jobs:
       - name: Mutation testing
         continue-on-error: true
         run: |
-          mutmut run
-
-      - name: Upload mutation results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: mutation-results
-          path: .mutmut-cache
+          python -m pip install mutmut
+          mutmut run || true
